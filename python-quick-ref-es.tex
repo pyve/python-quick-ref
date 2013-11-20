@@ -1,0 +1,441 @@
+% Pedro Kroger 2010
+
+\documentclass{article}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{dirtree}
+\usepackage[landscape,top=1cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.85]{beramono}
+%\usepackage{bera}
+\usepackage{fourier}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+
+\setlength\columnseprule{.4pt}
+\setlength\parindent{0pt}
+
+\definecolor{pythonblue}{RGB}{54,112,160}
+
+\renewcommand{\columnseprulecolor}{\color{pythonblue}}
+
+\pagestyle{empty}
+
+\definecolor{shade}{HTML}{D4D7FE}
+%\renewcommand*\DTstyle{\seriesdefault\tiny}
+
+\newcommand{\py}[2]{
+  \texttt{#1}(\textit{#2})\\
+}
+
+\newcommand{\pyc}[1]{
+  \texttt{#1}\\
+}
+
+\newcommand{\header}[1]{
+  \begin{tikzpicture}
+    \node [fill=pythonblue!20,rounded corners=5pt]
+    {\parbox{.95\linewidth}{\large \textcolor{pythonblue}{\sf \textbf{\hspace*{1ex}\raisebox{-15pt}{#1}}}\vspace*{1ex}}
+    };
+  \end{tikzpicture}
+  \par
+}
+
+\begin{document}
+
+\begin{minipage}[b]{0.1\linewidth}
+\includegraphics[scale=.64]{python-logo-notext}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.9\linewidth}
+{\Huge \textcolor{pythonblue}{\textsf{\textbf{Referencia rápida de Python 3.1}}}} \\
+{\large disponible en \url{https://github.com/pyve/python-quick-ref}} \\
+\vspace{.8em}
+\end{minipage}
+
+\hrulefill
+
+\begin{multicols*}{4}
+
+\header{Funciones incorporadas}
+
+\py{abs}{x}
+\py{all}{iter}
+\py{any}{iter}
+\py{ascii}{obj}
+\py{bin}{x}
+\py{bool}{[x]}
+\py{bytearray}{[arg,\,[encoding,\,[errors]]]}
+\py{bytes}{[arg,\,[encoding,\,[errors]]]}
+\py{chr}{i}
+\py{classmethod}{fn}
+\py{compile}{source,\,filename,\,mode}
+\py{complex}{real,\,[imag]}
+\py{dict}{[arg]}
+\py{dir}{[object]}
+\py{divmod}{x,\,y}
+\py{enumerate}{iter,\,start=0}
+\py{eval}{source,\,[globals,\,[locals]]}
+\py{filter}{fn,\,iter}
+\py{float}{[x]}
+\py{format}{alue,\,[format\_spec]}
+\py{frozenset}{[iter]}
+\py{getattr}{object,\,name,\,[default]}
+\py{globals}{}
+\py{hasattr}{object,\,name}
+\py{hash}{object}
+\py{help}{[object]}
+\py{hex}{x}
+\py{id}{object}
+\py{input}{[prompt]}
+\py{int}{[number | string,\,[base]]}
+\py{isinstance}{object,\,classinfo}
+\py{issubclass}{class,\,classinfo}
+\py{iter}{object,\,sentinel}
+\py{len}{object}
+\py{list}{[iter]}
+\py{locals}{}
+\py{map}{func,\,iter,\,\ldots}
+\py{max}{iter,\,[args...],\,*,\,[key]}
+\py{memoryview}{obj}
+\py{min}{iter,\,[args...],\,*,\,[key]}
+\py{next}{iterator,\,[default]}
+\py{object}{}
+\py{oct}{number}
+\py{open}{file, **keys}
+\py{ord}{c}
+\py{pow}{x,\,y,\,[z]}
+\py{print}{[obj,\,\ldots,\,sep,\,end,\,file]}
+\py{property}{**keys}
+\py{range}{[start,] stop,\,[step]}
+\py{repr}{object}
+\py{reversed}{sequence}
+\py{round}{x,\,[n]}
+\py{set}{iter}
+\py{setattr}{object,\,name,\,value}
+\py{slice}{[start],\,stop,\,[step]}
+\py{sorted}{iter,\,[key],\,[reverse]}
+\py{staticmethod}{unction}
+\py{str}{[object,\,[encoding,\,[errors]]]}
+\py{sum}{terable,\,[start]}
+\py{super}{[type,\,[object-or-type]]}
+\py{tuple}{[iter]}
+\py{type}{object}
+\py{type}{name,\,bases,\,dict}
+\py{vars}{[object]}
+\py{zip}{*iters}
+
+\header{Constantes incorporadas}
+\texttt{False}, \texttt{True}, \texttt{None}\\
+\texttt{Ellipsis}, \texttt{NotImplemented}
+
+\header{Operaciones booleanas}
+
+\begin{tabular}{ll}
+\texttt{not x}      & \\ 
+\texttt{x or y}     & \\ 
+\texttt{x and y}    & \\ 
+\end{tabular}
+
+\header{Comparaciones}
+
+\begin{tabular}{ll}
+\texttt{x < y}  & \\ 
+\texttt{x <= y} & \\ 
+\texttt{x > y}  & \\ 
+\texttt{x >= y} & \\ 
+\texttt{x == y} & \\ 
+\texttt{x != y} & \\ 
+\texttt{x is y} & \\ 
+\texttt{x is not y} & \\ 
+\texttt{x < y < z}  & \\ 
+\end{tabular}
+
+\header{Operaciones numéricas}
+
+\begin{tabular}{ll}
+\texttt{x + y}   & sum \\
+\texttt{x - y}   & subtraction \\
+\texttt{x * y}   & multiplication \\
+\texttt{x / y}   & quotient \\
+\texttt{x // y}  & floored quotient \\
+\texttt{x \% y}  & remainder \\
+\texttt{-x}      & negation \\
+\texttt{+x}      & identity \\
+\texttt{x ** y}  & x to the power y \\
+\end{tabular}
+
+\header{Operaciones cadena Bits}
+
+\begin{tabular}{ll}
+\texttt{x | y}   & or \\
+\texttt{x \& y}  & and \\
+\verb!x ^ y! & exclusive or \\
+\verb!x << n! & bitwise left-shift \\
+\verb!x >> n! & right-shift \\
+\verb+~x+ & bitwise invert (integers)  \\ 
+\end{tabular}
+
+\header{Asignación extendida}
+
+\begin{tabular}{lll}
+\texttt{x += y}   & & \texttt{x /= y}   \\
+\texttt{x \&= y}  & & \verb!x >>= y!    \\
+\texttt{x -= y}   & & \texttt{x \%= y}  \\
+\texttt{x |= y}   & & \verb!x <<= y!    \\
+\texttt{x *= y}   & & \texttt{x **= y}  \\
+\verb!x ^= y!    & & \texttt{x //= y} \\
+\end{tabular}
+
+\header{Asignación de secuencia}
+
+\texttt{w = [1, 2, 3, 4]}
+
+\begin{tabular}{ll}
+\texttt{a, *b = w} & \texttt{(1, [2, 3, 4])} \\
+\texttt{a, *b, c = w} & \texttt{(1, [2, 3], 4)} \\
+\end{tabular}
+
+\header{Operaciones de secuencia}
+
+\begin{tabular}{ll}
+\texttt{x in s} & membership \\
+\texttt{x not in s} & membership \\
+\texttt{s + t} & concatenation \\
+\texttt{s * n, n * s} & copy s \texttt{n} times \\
+\texttt{s[n]} & nth item of s \\
+\texttt{s[i:j]} & from i to j \\
+\texttt{s[i:j:k]} & from i to j, step k \\
+\end{tabular}
+
+\header{Ejemplos de Slice}
+
+\texttt{s = ['a', 'b', 'c']}
+
+\begin{tabular}{lll}
+\texttt{s[0]} & \texttt{'a'}  & first \\
+\texttt{s[-1]} & \texttt{'c'}  & last \\
+\texttt{s[1:]} & \texttt{['b', 'c']}  & rest \\
+\texttt{s[:-1]} & \texttt{['a', 'b']}  & butlast \\
+\end{tabular}
+
+\header{Métodos Float}
+
+\py{float.as\_integer\_ratio}{}
+\py{float.hex}{}
+\py{float.fromhex}{s}
+\header{Métodos de Lista}
+
+\py{append}{obj}
+\py{extend}{iter}
+\py{count}{value}
+\py{index}{value,\,[start,\,[stop]]}
+\py{insert}{pos, obj}
+\py{pop}{[index]}
+\py{remove}{value}
+\py{reverse}{}
+\py{sort}{key=None, reverse=False}
+
+\header{Métodos de cadena}
+
+\py{capitalize}{}
+\py{center}{width,\,[fillchar]}
+\py{count}{sub,\,[start,\,[end]]}
+\py{decode}{[encoding,\,[errors]]}
+\py{encode}{[encoding[,errors]]}
+\py{endswith}{suffix,\,[start,\,[end]]}
+\py{expandtabs}{[tabsize]}
+\py{find}{sub,\,[start,\,[end]]}
+\py{format}{*args,\,**kwargs}
+\py{index}{sub,\,[start,\,[end]]}
+\py{isalnum}{}
+\py{isalpha}{}
+\py{isdigit}{}
+\py{islower}{}
+\py{isspace}{}
+\py{istitle}{}
+\py{isupper}{}
+\py{join}{iterable}
+\py{ljust}{width,\,[fillchar]}
+\py{lower}{}
+\py{lstrip}{[chars]}
+\py{partition}{sep}
+\py{replace}{old,\,new,\,[count]}
+\py{rfind}{sub [,start [,end]]}
+\py{rindex}{sub,\,[start,\,[end]]}
+\py{rjust}{width,\,[fillchar]}
+\py{rpartition}{sep}
+\py{rsplit}{[sep [,maxsplit]]}
+\py{rstrip}{[chars]}
+\py{split}{[sep,\,[maxsplit]]}
+\py{splitlines}{[keepends]}
+\py{startswith}{prefix,\,[start,\,[end]]}
+\py{strip}{[chars]}
+\py{swapcase}{}
+\py{title}{}
+\py{translate}{table,\,[deletechars]}
+\py{upper}{}
+\py{zfill}{width}
+
+\header{Métodos Set}
+
+\py{add}{elem}
+\py{clear}{}
+\py{copy}{}
+\py{difference}{other,\,\ldots}
+\py{difference\_update}{other,\,\ldots}
+\py{discard}{elem}
+\py{intersection}{other,\,\ldots}
+\py{intersection\_update}{other,\,\ldots}
+\py{isdisjoint}{other}
+\py{issubset}{other}
+\py{issuperset}{other}
+\py{pop}{}
+\py{remove}{elem}
+\py{symmetric\_difference}{other}
+\py{symmetric\_difference\_update}{other}
+\py{union}{other,\,\ldots}
+\py{update}{other,\,\ldots}
+
+\header{Métodos de Diccionario}
+
+\py{clear}{}
+\py{copy}{}
+\py{fromkeys}{seq,\,[value]}
+\py{get}{key,\,[default]}
+\py{items}{}
+%\py{iteritems}{}
+%\py{iterkeys}{}
+%\py{itervalues}{}
+\py{keys}{}
+\py{popitem}{}
+\py{pop}{key,\,[default]}
+\py{setdefault}{key,\,[default]}
+\py{update}{[other]}
+\py{values}{}
+%\py{viewitems}{}
+%\py{viewkeys}{}
+%\py{viewvalues}{}
+\header{Métodos de Archivo}
+
+\py{close}{}
+\py{flush}{}
+\py{fileno}{}
+\py{isatty}{}
+\py{next}{}
+\py{read}{[size]}
+\py{readline}{[size]}
+\py{readlines}{[sizehint]}
+\py{xreadlines}{}
+\py{seek}{offset, [whence]}
+\py{tell}{}
+\py{truncate}{[size]}
+\py{write}{str}
+\py{writelines}{sequence}
+
+\header{Del futuro (python 2.6)}
+
+\texttt{from \_\_future\_\_ import <f>}
+
+\begin{tabular}{ll}
+\texttt{absolute\_import}    & PEP 328\\
+\texttt{division}            & PEP 238\\
+\texttt{print\_function}     & PEP 3105\\
+\texttt{unicode\_literals}   & PEP 3112\\
+\end{tabular}
+
+\header{Palabras clave (keywords)}
+\begin{verbatim}
+False None True and as assert
+break class continue def del in
+elif else except finally for is
+from global if import lambda
+nonlocal not or pass raise
+return try while with yield
+\end{verbatim}
+
+\header{Excepciones incorporadas}
+
+\dirtree{%
+.1 BaseException.
+.2 SystemExit.
+.2 KeyboardInterrupt.
+.2 GeneratorExit.
+.2 Exception.
+.2 StopIteration.
+}
+
+\dirtree{%
+.1 BaseException.
+.2 AssertionError.
+.2 AttributeError.
+.2 BufferError.
+.2 ArithmeticError.
+.3 FloatingPointError.
+.3 OverflowError.
+.3 ZeroDivisionError.
+.2 EnvironmentError.
+.3 IOError.
+.3 OSError.
+.3 WindowsError (Windows).
+.3 VMSError (VMS).
+.2 EOFError.
+.2 ImportError.
+.2 LookupError.
+.3 IndexError.
+.3 KeyError.
+.2 MemoryError.
+.2 NameError.
+.3 UnboundLocalError.
+.2 ReferenceError.
+.2 RuntimeError.
+.3 NotImplementedError.
+.2 SyntaxError.
+.3 IndentationError.
+.3 TabError.
+.2 SystemError.
+.2 TypeError.
+.2 ValueError.
+.3 UnicodeError.
+.3 UnicodeDecodeError.
+.3 UnicodeEncodeError.
+.3 UnicodeTranslateError.
+.2 Warning.
+.2 DeprecationWarning.
+.2 PendingDeprecationWarning.
+.2 RuntimeWarning.
+.2 SyntaxWarning.
+.2 UserWarning.
+.2 FutureWarning.
+.2 ImportWarning.
+.2 UnicodeWarning.
+.2 BytesWarning.
+}
+
+\end{multicols*}
+\end{document}
+
+\newpage
+
+\header{El módulo string}
+
+\pyc{ascii\_letters}
+\pyc{ascii\_lowercase}
+\pyc{ascii\_uppercase}
+\pyc{digits}
+\pyc{hexdigits}
+\pyc{octdigits}
+\pyc{printable}
+\pyc{punctuation}
+\pyc{whitespace}
+\py{format}{}
+\py{capwords}{}
+\py{maketrans}{}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

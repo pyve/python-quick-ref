@@ -1,4 +1,4 @@
-NAME = python-quick-ref
+NAME = python-quick-ref-es
 USE_PDFLATEX = 1
 
 LATEX_ENV+=TEXINPUTS=.:tex:lisp:src:config:figs:data:lily:out:
